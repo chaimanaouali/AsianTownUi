@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil Asiatique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f8c999; }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navbar -->
+    <nav class="bg-[#f8c999] py-4 px-10 flex justify-between items-center">
+        <img src="/test/images/logo-removebg-preview.png" alt="Logo" class="w-16">
+        <ul class="flex space-x-6 text-lg font-medium">
+            <li><a href="#" class="hover:text-orange-600">Accueil</a></li>
+            <li><a href="#" class="hover:text-orange-600">Produits alimentaires</a></li>
+            <li><a href="#" class="hover:text-orange-600">Produits vestimentaires</a></li>
+            <li><a href="#" class="hover:text-orange-600">Produits cosmétiques</a></li>
+            <li><a href="#" class="hover:text-orange-600">Cluture</a></li>
+            <li><a href="#" class="hover:text-orange-600">Scan me</a></li>
+
+        </ul>
+        <div class="flex items-center space-x-4">
+            <input type="text" placeholder="Rechercher" class="px-3 py-1 rounded-lg border border-gray-300">
+            <button class="bg-orange-500 text-white px-4 py-2 rounded-lg">Connexion</button>
+        </div>
+    </nav>
+    
+    <!-- Section principale -->
+    <section class="flex justify-between items-center px-20 mt-12">
+        <div>
+            <h1 class="text-5xl font-bold text-gray-900">L'âme de l'Asie, chez <span class="text-orange-600">Vous</span></h1>
+            <p class="text-lg text-gray-700 mt-2">Découvrez le cœur de l'Asie
+                Embarquez pour un voyage de goût et de tradition  </p>
+                <p class="text-lg text-gray-700 mt-2">avec notre sélection soigneusement sélectionnée de produits asiatiques authentiques.</p>
+            <div class="flex space-x-4 mt-4">
+                <button class="bg-orange-500 text-white px-6 py-3 rounded-lg">Commander maintenant</button>
+                <button class="flex items-center space-x-2 bg-white text-orange-500 font-semibold px-5 py-2 rounded-full shadow-md border border-orange-500">
+                    <span class="text-xl text-orange-500">&#9654;</span>
+                    <span>Processus de commande</span>
+                </button>
+            </div>
+            
+            
+        </div>
+        
+        <!-- Produits populaires -->
+        <div class="grid grid-cols-2 gap-3">
+            <div class="bg-white p-3 shadow rounded-lg text-center">
+                <img src="/test/images/cup_noodles-removebg-preview.png" class="w-full h-32 object-cover rounded">
+                <p class="font-bold mt-2 text-sm">Cup Noodles</p>
+                <p class="text-gray-500 text-xs mt-1">Dt13</p>
+
+                <div class="flex items-center justify-center space-x-2 mt-1">
+                    <span class="text-lg cursor-pointer bg-white text-black p-1.5 rounded-full shadow">&#8594;</span>
+                    <span class="text-lg cursor-pointer bg-black text-white p-1.5 rounded-full shadow">&#8592;</span>
+                </div>     
+            </div>
+            <div class="bg-white p-3 shadow rounded-lg text-center">
+                <img src="/test/images/aka_rose-removebg-preview.png" class="w-full h-32 object-cover rounded">
+                <p class="font-bold mt-2 text-sm">Fruits du dragon</p>
+                <p class="text-gray-500 text-xs mt-1">Dt20</p>
+
+                <div class="flex items-center justify-center space-x-2 mt-1">
+                    <span class="text-lg cursor-pointer bg-white text-black p-1.5 rounded-full shadow">&#8594;</span>
+                    <span class="text-lg cursor-pointer bg-black text-white p-1.5 rounded-full shadow">&#8592;</span>
+                </div>     
+            </div>
+            <div class="bg-white p-3 shadow rounded-lg text-center">
+                <img src="/test/images/tofu-removebg-preview.png" class="w-full h-32 object-cover rounded">
+                <p class="font-bold mt-2 text-sm">Tofu frais</p>
+                <p class="text-gray-500 text-xs mt-1">Dt14</p>
+
+                <div class="flex items-center justify-center space-x-2 mt-1">
+                    <span class="text-lg cursor-pointer bg-white text-black p-1.5 rounded-full shadow">&#8594;</span>
+                    <span class="text-lg cursor-pointer bg-black text-white p-1.5 rounded-full shadow">&#8592;</span>
+                </div>     
+            </div>
+            <div class="bg-white p-3 shadow rounded-lg text-center">
+                <img src="/test/images/3ejja-removebg-preview.png" class="w-full h-32 object-cover rounded">
+                <p class="font-bold mt-2 text-sm">Riz sauté</p>
+                <p class="text-gray-500 text-xs mt-1">Dt23</p>
+
+                <div class="flex items-center justify-center space-x-2 mt-1">
+                    <span class="text-lg cursor-pointer bg-white text-black p-1.5 rounded-full shadow">&#8594;</span>
+                    <span class="text-lg cursor-pointer bg-black text-white p-1.5 rounded-full shadow">&#8592;</span>
+                </div>     
+            </div>
+        </div>
+        
+    </section>
+    
+    <div class="text-center mt-12">
+        <h2 class="text-2xl font-bold">Commander des produits</h2>
+        <div class="bg-white p-6 rounded-lg shadow-md w-96 mx-auto relative border border-gray-200">
+            <!-- Image du produit -->
+            <img src="/test/images/aka koukha .jpg" alt="Fruits de la passion" class="w-48 h-48 mx-auto object-cover">
+        
+            <!-- Contenu du card -->
+            <div class="mt-4 px-4">
+                <h3 class="text-lg font-bold text-gray-800 flex items-center">
+                    Fruits de la passion 
+                    <span class="ml-2 text-orange-500 text-sm">+ -</span>
+                </h3>
+        
+                <p class="text-orange-500 font-semibold mt-1">Détails</p>
+                <p class="text-gray-600 text-sm">Le fruit de la passion est le fruit de certaines plantes à fleurs du genre Passiflora.</p>
+        
+                <span class="text-red-500 font-bold block mt-2">Épuisé</span>
+        
+                <p class="text-gray-500 text-xs mt-1">Dt25,50</p>
+            </div>
+        
+            <!-- Bouton Commander (réduit) -->
+            <a href="amen11.html" class="mt-4 inline-flex items-center bg-[#FF7F3F] text-white px-4 py-2 rounded text-center">
+                Commander <span class="ml-2 bg-white text-[#FF7F3F] p-1 rounded-full text-xs">&#8594;</span>
+            </a>
+        </div>
+    </div>
+    
+    
+    
+    <div class="bg-black text-white py-8 px-10 flex items-center justify-center mt-12">
+        <!-- Image à gauche -->
+        <img src="/test/images/mha-removebg-preview.png" alt="Newsletter" class="w-32 h-32 object-cover rounded-lg mr-6">
+    
+        <!-- Contenu texte et formulaire -->
+        <div class="text-center">
+            <h2 class="text-2xl font-bold">Abonnez-vous à notre newsletter</h2>
+            
+            <div class="flex justify-center mt-4">
+                <input type="email" placeholder="Votre email" class="p-2 rounded text-black">
+                <button class="bg-orange-500 px-6 py-2 rounded-lg ml-2">S'inscrire</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-10">
+        <div class="container mx-auto px-6 grid grid-cols-4 gap-8 text-gray-700">
+            <!-- Logo + Texte -->
+            <div class="flex flex-col items-center text-center">
+                <img src="/test/images/logo-removebg-preview.png" alt="Logo" class="w-20">
+                <p class="mt-4 text-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo libero viverra dapibus odio sit malesuada.
+                </p>
+                <!-- Réseaux sociaux -->
+                <div class="flex space-x-3 mt-4">
+                    <a href="#" class="text-orange-500 text-lg"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-orange-500 text-lg"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-orange-500 text-lg"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-orange-500 text-lg"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+    
+            <!-- Horaires de travail -->
+            <div>
+                <h3 class="font-bold text-lg">Horaire de travail</h3>
+                <p class="mt-2 text-sm">Sat-Wed: 09:00am - 10:00PM</p>
+                <p class="text-sm">Thursday: 09:00am - 11:00PM</p>
+                <p class="text-sm">Friday: 09:00am - 08:00PM</p>
+            </div>
+    
+            <!-- Liens utilisateur -->
+            <div>
+                <h3 class="font-bold text-lg">Lien utilisateur</h3>
+                <ul class="mt-2 space-y-1 text-sm">
+                    <li><a href="#" class="hover:text-orange-500">About Us</a></li>
+                    <li><a href="#" class="hover:text-orange-500">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-orange-500">Order Delivery</a></li>
+                    <li><a href="#" class="hover:text-orange-500">Payment & Tax</a></li>
+                    <li><a href="#" class="hover:text-orange-500">Terms of Services</a></li>
+                </ul>
+            </div>
+    
+            <!-- Contactez-nous -->
+            <div>
+                <h3 class="font-bold text-lg">Contactez-nous</h3>
+                <p class="mt-2 text-sm">1234 Country Club Ave</p>
+                <p class="text-sm">Ariana Ville, Ariana, Tunisie</p>
+                <p class="text-sm">+216 41 703 090</p>
+                <!-- Champ d'email -->
+                <div class="mt-4 flex items-center bg-white border border-gray-300 rounded-full px-4 py-2">
+                    <input type="email" placeholder="Enter your email..." class="flex-1 outline-none text-sm bg-transparent">
+                    <button class="bg-orange-500 text-white p-2 rounded-full">
+                        &#8594;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
