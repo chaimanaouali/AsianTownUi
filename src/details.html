@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produits Recommandés - ASIA TOWN</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+  <script>
+    // Fonction pour afficher/masquer le formulaire d'avis
+    function toggleAvisForm() {
+      const form = document.getElementById('avisForm');
+      form.classList.toggle('hidden');
+    }
+  
+    // Fonction pour définir la note avec les étoiles
+    function setRating(rating) {
+      const stars = document.querySelectorAll('#starRating span');
+      const ratingInput = document.getElementById('rating');
+  
+      // Mettre à jour les étoiles
+      stars.forEach((star, index) => {
+        if (index < rating) {
+          star.textContent = '★'; // Étoile pleine
+          star.style.color = '#FFD700'; // Couleur dorée
+        } else {
+          star.textContent = '☆'; // Étoile vide
+          star.style.color = '#000000'; // Couleur noire
+        }
+      });
+  
+      // Mettre à jour la valeur cachée du formulaire
+      ratingInput.value = rating;
+    }
+  
+    // Fonction pour afficher le message de remerciement
+    function showMerciMessage(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+  
+      // Vérifier si une note a été sélectionnée
+      const ratingInput = document.getElementById('rating');
+      if (ratingInput.value === "0") {
+        alert("Veuillez sélectionner une note avant de soumettre.");
+        return;
+      }
+  
+      // Masquer le formulaire et afficher le message de remerciement
+      const form = document.getElementById('avisForm');
+      const thankYouMessage = document.getElementById('thankYouMessage');
+      form.classList.add('hidden');
+      thankYouMessage.classList.remove('hidden');
+    }
+  </script>
+</head>
+
+<body>
+  <div class="flex flex-col bg-orange-200 min-h-screen">
+    <!-- Navbar -->
+    <nav class="flex flex-col items-center w-full max-md:max-w-full">
+      <div class="flex flex-wrap gap-5 justify-between items-center w-full px-4 max-md:flex-col max-md:gap-3">
+        <!-- Logo and Brand Name -->
+        <div class="flex gap-7 items-center text-lg font-semibold text-red-800">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/3f5214a6ea9f4f1683a0e4ee385ff9c5/6c530be543ca80075ebe2f12b192fdbb4dfa54f39661754f7b2948e12c950ad7?placeholderIfAbsent=true"
+            alt="ASIA TOWN Logo" class="object-contain shrink-0 max-w-full aspect-[1.48] w-[132px]" />
+          <div class="flex items-center justify-center px-6 py-5 bg-white bg-opacity-30 rounded-[31.5px] max-md:px-5">
+            ASIA TOWN
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="flex items-center gap-5 max-md:flex-col max-md:w-full">
+          <a href="LandingPage.html" class="flex items-center text-lg font-semibold text-black hover:text-red-800 transition-colors"
+            aria-current="page">
+            Accueil
+          </a>
+          <div
+            class="flex flex-wrap gap-4 justify-center items-center text-lg font-semibold text-black max-md:justify-center">
+            <a href="#" class="flex items-center hover:text-red-800 transition-colors">Produits Alimentaire</a>
+            <a href="#"
+              class="flex items-center text-center hover:text-red-800 transition-colors">Produits<br />Vestimentaire</a>
+            <a href="#"
+              class="flex items-center text-center hover:text-red-800 transition-colors">Produits<br />Cosmétique</a>
+            <a href="#" class="flex items-center hover:text-red-800 transition-colors">Cultures</a>
+          </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="flex flex-wrap gap-5 items-center max-md:justify-center max-md:w-full">
+          <div class="flex items-center text-lg font-semibold text-black">Scan me</div>
+          <div
+            class="flex items-center gap-10 px-6 py-3.5 rounded-xl shadow-sm bg-white bg-opacity-30 max-md:px-5 max-md:w-full">
+            <div class="flex gap-5 items-center text-lg font-semibold text-black whitespace-nowrap">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/3f5214a6ea9f4f1683a0e4ee385ff9c5/182946df79b9ec058a08ca1f81a5795b4d8a1c4954841ed3f768866484b35e01?placeholderIfAbsent=true"
+                alt="Search icon" class="object-contain shrink-0 aspect-[0.96] w-[27px]" />
+              <label for="search" class="sr-only">Rechercher</label>
+              <div class="flex items-center">Rechercher</div>
+            </div>
+            <div class="flex gap-8 items-center">
+              <div class="shrink-0 w-px border border-solid border-zinc-400 h-[37px]"></div>
+              <button type="button" aria-label="Rechercher" class="flex items-center">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/3f5214a6ea9f4f1683a0e4ee385ff9c5/8792f36ac434e263807aff0f9f05f2c13356184f359e169f1878cdd068ee426f?placeholderIfAbsent=true"
+                  alt="" class="object-contain shrink-0 w-7 aspect-[0.93]" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="flex flex-col items-center px-5 py-10 w-full">
+      <main class="flex flex-col md:flex-row gap-8 w-full max-w-7xl mt-10">
+        <section class="w-full md:w-2/3">
+          <div class="flex flex-col w-full">
+            <h1 class="text-3xl font-bold text-red-800">Produits</h1>
+            <h2 class="text-2xl font-bold text-black mt-2">
+              Détails
+            </h2>
+
+            <div class="flex justify-center mt-8">
+              <!-- Product 1 -->
+              <article class="bg-white rounded-3xl overflow-hidden shadow-lg w-full max-w-2xl">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/3f5214a6ea9f4f1683a0e4ee385ff9c5/f8b1fb69a3f107bff794e33261b60a14965159e0e38eec326ec4809aebdc988d?placeholderIfAbsent=true"
+                  alt="Gyro Sandwich" class="w-full h-64 object-cover" />
+                <div class="p-6">
+                  <div class="flex justify-between items-start">
+                    <h3 class="text-2xl font-bold">Gyro Sandwich</h3>
+                    <div class="flex items-center">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/3f5214a6ea9f4f1683a0e4ee385ff9c5/4860ec7f54d0f5d16b3fb11369fbd9b45eedd5d5f4f6ba178cc63caf74011317?placeholderIfAbsent=true"
+                        alt="Étoile" class="w-6 h-6 mr-1" />
+                      <span class="text-xl">4.9</span>
+                    </div>
+                  </div>
+                  <div class="mt-4 font-semibold text-xl">Dt15,00</div>
+                  <div class="flex justify-between mt-6">
+                    <button class="bg-red-800 text-white px-6 py-3 rounded-full text-lg">
+                      Ajouter au panier
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="flex justify-center mt-10">
+              <button class="flex items-center bg-orange-600 text-white px-6 py-3 rounded-full">
+                Voir autres produits
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  class="w-6 h-6 ml-2">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="w-full md:w-1/3 mt-10">
+          <div class="bg-white bg-opacity-30 rounded-3xl p-6">
+            <h3 class="text-xl font-bold text-orange-600 mb-8">
+              Détails du produit
+            </h3>
+            
+            <!-- Petit carré avec description -->
+            <div class="bg-white shadow-lg p-4 rounded-xl mb-6">
+              <p class="text-lg text-black">
+                Découvrez notre délicieux sandwich composé d'escalope tendre et de légumes frais. Ce sandwich combine la saveur
+                savoureuse de l'escalope grillée avec la fraîcheur des légumes croquants comme la laitue, les tomates et les oignons.
+                Un choix parfait pour un repas rapide et sain, idéal pour satisfaire vos envies tout au long de la journée.
+              </p>
+              <button onclick="toggleAvisForm()" class="bg-red-800 text-white px-6 py-3 rounded-full text-lg">
+                Avis
+              </button>
+            </div>
+
+           <!-- Formulaire Avis caché -->
+<div id="avisForm" class="hidden mt-8 bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h3 class="text-lg font-bold text-black mb-4">Laissez un avis</h3>
+    <form onsubmit="showMerciMessage(event)">
+      <!-- Étoiles de notation -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Note</label>
+        <div class="flex space-x-2" id="starRating">
+          <!-- Étoiles vides par défaut -->
+          <span class="text-2xl cursor-pointer" data-rating="1" onclick="setRating(1)">☆</span>
+          <span class="text-2xl cursor-pointer" data-rating="2" onclick="setRating(2)">☆</span>
+          <span class="text-2xl cursor-pointer" data-rating="3" onclick="setRating(3)">☆</span>
+          <span class="text-2xl cursor-pointer" data-rating="4" onclick="setRating(4)">☆</span>
+          <span class="text-2xl cursor-pointer" data-rating="5" onclick="setRating(5)">☆</span>
+        </div>
+        <input type="hidden" id="rating" name="rating" value="0" required>
+      </div>
+  
+      <!-- Champ de commentaire -->
+      <div class="mb-4">
+        <label for="comment" class="block text-sm font-medium text-gray-700">Commentaire</label>
+        <textarea id="comment" name="comment" rows="4" class="w-full px-4 py-2 border rounded-lg" required></textarea>
+      </div>
+  
+      <!-- Bouton de soumission -->
+      <button type="submit" class="bg-red-800 text-white px-6 py-3 rounded-full text-lg">
+        Soumettre l'avis
+      </button>
+    </form>
+  </div>
+  
+  <!-- Message de remerciement -->
+  <div id="thankYouMessage" class="hidden text-lg text-green-600 font-bold mt-4">
+    Merci pour votre avis !
+  </div>
+
+          </div>
+        </aside>
+      </main>
+    </header>
+
+    <!-- Footer -->
+    <footer class="flex flex-col items-center px-20 pt-24 pb-14 mt-7 w-full text-lg text-black bg-slate-50 max-md:px-5">
+      <!-- Code du footer inchangé... -->
+    </footer>
+  </div>
+</body>
+
+</html>

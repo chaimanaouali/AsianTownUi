@@ -13,6 +13,52 @@
       font-family: "Inter", sans-serif;
     }
   </style>
+<script>
+  // Fonction pour afficher/masquer le formulaire d'avis
+  function toggleAvisForm() {
+    const form = document.getElementById('avisForm');
+    form.classList.toggle('hidden');
+  }
+
+  // Fonction pour définir la note avec les étoiles
+  function setRating(rating) {
+    const stars = document.querySelectorAll('#starRating span');
+    const ratingInput = document.getElementById('rating');
+
+    // Mettre à jour les étoiles
+    stars.forEach((star, index) => {
+      if (index < rating) {
+        star.textContent = '★'; // Étoile pleine
+        star.style.color = '#FFD700'; // Couleur dorée
+      } else {
+        star.textContent = '☆'; // Étoile vide
+        star.style.color = '#000000'; // Couleur noire
+      }
+    });
+
+    // Mettre à jour la valeur cachée du formulaire
+    ratingInput.value = rating;
+  }
+
+  // Fonction pour afficher le message de remerciement
+  function showMerciMessage(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    // Vérifier si une note a été sélectionnée
+    const ratingInput = document.getElementById('rating');
+    if (ratingInput.value === "0") {
+      alert("Veuillez sélectionner une note avant de soumettre.");
+      return;
+    }
+
+    // Masquer le formulaire et afficher le message de remerciement
+    const form = document.getElementById('avisForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    form.classList.add('hidden');
+    thankYouMessage.classList.remove('hidden');
+  }
+</script>
+
 </head>
 
 <body>
@@ -456,7 +502,9 @@
             src="https://cdn.builder.io/api/v1/image/assets/3f5214a6ea9f4f1683a0e4ee385ff9c5/4584fe3b54579b2d7fb0bc02058f7f9bc28c7d594fca9715a6b080d2497679d1?placeholderIfAbsent=true"
             alt="" aria-hidden="true" class="object-contain shrink-0 self-stretch my-auto aspect-square w-[58px]" />
         </a>
+     
       </div>
+     
     </section>
 
     <!-- Services Section -->
@@ -464,6 +512,7 @@
       <p class="mt-20 text-lg font-medium text-orange-400 max-md:mt-10 text-center">Services</p>
       <h2 class="text-4xl font-bold text-black max-md:max-w-full text-center mb-16">Pourquoi choisir notre choix préféré
       </h2>
+      
 
       <div class="self-stretch mt-16 max-md:mt-10 max-md:max-w-full flex justify-center">
         <div class="flex flex-wrap justify-center gap-5 max-md:flex-col items-center">
@@ -517,7 +566,6 @@
       </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="mt-20 max-w-[1586px] w-full max-md:mt-10 flex flex-col items-center bg-orange-200">
       <p class="mt-20 text-lg font-medium text-orange-400 max-md:mt-10 text-center">
         Témoignages
@@ -525,7 +573,57 @@
       <h2 class="text-4xl font-bold text-black max-md:max-w-full text-center mb-16">
         Notre client satisfait dit
       </h2>
-
+      <div class="flex justify-center mt-10 max-md:mt-8">
+        <button
+          onclick="toggleAvisForm()"
+          class="flex gap-7 justify-center items-center px-3 py-2 text-lg font-medium text-center text-white bg-orange-400 rounded-[37px] hover:bg-orange-500 transition-colors">
+          <span class="self-stretch my-auto">Merci de nous laisser votre avis</span>
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/3f5214a6ea9f4f1683a0e4ee385ff9c5/4584fe3b54579b2d7fb0bc02058f7f9bc28c7d594fca9715a6b080d2497679d1?placeholderIfAbsent=true"
+            alt="" aria-hidden="true" class="object-contain shrink-0 self-stretch my-auto aspect-square w-[58px]" />
+        </button>
+      </div>
+    
+      <!-- Formulaire Avis caché -->
+      <div id="avisForm" class="hidden mt-8 bg-amber-50 p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h3 class="text-lg font-bold text-black mb-4">Laissez un avis</h3>
+        <form onsubmit="showMerciMessage(event)">
+          <!-- Étoiles de notation -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Note</label>
+            <div class="flex space-x-2" id="starRating">
+              <!-- Étoiles vides par défaut -->
+              <span class="text-2xl cursor-pointer" data-rating="1" onclick="setRating(1)">☆</span>
+              <span class="text-2xl cursor-pointer" data-rating="2" onclick="setRating(2)">☆</span>
+              <span class="text-2xl cursor-pointer" data-rating="3" onclick="setRating(3)">☆</span>
+              <span class="text-2xl cursor-pointer" data-rating="4" onclick="setRating(4)">☆</span>
+              <span class="text-2xl cursor-pointer" data-rating="5" onclick="setRating(5)">☆</span>
+            </div>
+            <input type="hidden" id="rating" name="rating" value="0" required>
+          </div>
+      
+          <!-- Champ de commentaire -->
+          <div class="mb-4">
+            <label for="comment" class="block text-sm font-medium text-gray-700">Commentaire</label>
+            <textarea id="comment" name="comment" rows="4" class="w-full px-4 py-2 border rounded-lg" required></textarea>
+          </div>
+      
+          <!-- Bouton de soumission -->
+          <button
+          type="submit"
+          class="flex gap-7 justify-center items-center px-3 py-2 text-lg font-medium text-center text-white bg-orange-400 rounded-[37px] hover:bg-orange-500 transition-colors">
+          <span class="self-stretch my-auto">Soumettre l'avis</span>
+          
+        </button>
+        </form>
+      </div>
+      
+      <!-- Message de remerciement -->
+      <div id="thankYouMessage" class="hidden text-lg text-green-600 font-bold mt-4">
+        Merci pour votre avis !
+      </div>
+      
+    
       <div class="flex justify-center items-center z-10 mt-16 text-black max-md:mt-10">
         <button class="bg-orange-400 text-white rounded-full w-10 h-10 flex items-center justify-center">←</button>
         <article
@@ -552,31 +650,6 @@
       <img
         src="https://cdn.builder.io/api/v1/image/assets/3f5214a6ea9f4f1683a0e4ee385ff9c5/089486644b13c5f33c35fab216c6b01f30232a62cad0d4bced509fa1970c4727?placeholderIfAbsent=true"
         alt="Décoration" class="object-contain self-end mt-0 max-w-full aspect-[1.69] w-[750px] max-md:mt-0" />
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="flex flex-col pb-32 mt-0 w-full text-lg max-w-[1628px] max-md:pb-24 max-md:max-w-full">
-      <div
-        class="flex flex-col items-end self-end px-12 py-20 mt-0 mb-0 w-full bg-black max-w-[1560px] rounded-[50px] max-md:px-5 max-md:mt-0 max-md:mb-2.5 max-md:max-w-full">
-        <h2 class="text-4xl font-bold text-white max-md:max-w-full">
-          Abonnez-vous à notre newsletter
-        </h2>
-        <p class="mt-4 mr-24 font-medium text-white max-md:mr-2.5 max-md:max-w-full">
-          Lorem ipsum dolor sit amet, consectetur adipidrscing elit. Purus
-          mauris sem sed urna venenatis vivamus. Egestas in velit nulla
-          viverra turpis id ac. Amet faucibus tempus.
-        </p>
-        <form
-          class="flex flex-wrap gap-5 justify-between py-3 pr-3.5 pl-9 mt-7 mr-24 max-w-full bg-white rounded-2xl w-[526px] max-md:pl-5 max-md:mr-2.5">
-          <label for="email" class="sr-only">Email</label>
-          <input type="email" id="email" placeholder="Tapez votre email....."
-            class="my-auto font-medium text-zinc-400 bg-transparent border-none outline-none flex-grow" required />
-          <button type="submit"
-            class="px-4 py-3.5 font-semibold text-white whitespace-nowrap bg-orange-600 rounded-2xl hover:bg-orange-700 transition-colors">
-            ABONNEZ-VOUS
-          </button>
-        </form>
-      </div>
     </section>
 
     <!-- Footer -->
@@ -661,6 +734,7 @@
       </div>
     </footer>
   </main>
+  
 </body>
 
 </html>
