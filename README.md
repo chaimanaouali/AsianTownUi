@@ -1,13 +1,13 @@
 Chaima Naouali :        Formulaire de commmande 
-                        Confirmation de commande
+                        / Confirmation de commande
                         
 Moatez Ghoul :          Page d'accueil
-                        Produits Recommandés
+                        / Produits Recommandés
                         
 Amenallah Belhouichet : Commander Produits 
-                        Restock Produits 
+                        / Restock Produits 
 
 Samar Elfidha :         Details Produits 
-                        Suggestion Produits
+                        / Suggestion Produits
 
 Ayoub Hanfi :           Avis Clients
